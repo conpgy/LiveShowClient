@@ -15,32 +15,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        setupRootWindowAndRootViewController()
+        
         return true
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
 
 }
 
+extension AppDelegate {
+    func setupRootWindowAndRootViewController() -> Void {
+        
+        window = UIWindow()
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        
+        let tabBarVc = UITabBarController(nibName: nil, bundle: nil)
+        window?.rootViewController = tabBarVc
+        
+        let homeViewController = HomeViewController()
+        let rankViewController = RankViewController()
+        let discoverViewController = DiscoverViewController()
+        let profileViewController = ProfileViewController()
+        
+        homeViewController.tabBarItem.image = UIImage(named: "live-p")
+        homeViewController.tabBarItem.selectedImage = UIImage(named: "live-n")
+        homeViewController.title = "首页"
+        
+        rankViewController.tabBarItem.image = UIImage(named: "ranking-p")
+        rankViewController.tabBarItem.selectedImage = UIImage(named: "ranking-n")
+        rankViewController.title = "排行"
+        
+        discoverViewController.tabBarItem.image = UIImage(named: "found-p")
+        discoverViewController.tabBarItem.selectedImage = UIImage(named: "found-n")
+        discoverViewController.title = "发现"
+        
+        profileViewController.tabBarItem.image = UIImage(named: "mine-p")
+        profileViewController.tabBarItem.selectedImage = UIImage(named: "mine-n")
+        profileViewController.title = "我的"
+        
+        tabBarVc.viewControllers = [homeViewController,rankViewController,discoverViewController,profileViewController]
+        
+    }
+    
+    func addChildViewController() {
+        
+    }
+}
