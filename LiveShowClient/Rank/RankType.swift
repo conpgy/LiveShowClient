@@ -28,6 +28,19 @@ enum RankType: CustomStringConvertible {
         }
     }
     
+    var title: String {
+        switch self {
+        case .Star:
+            return "rankStar"
+        case .Wealth:
+            return "rankWealth"
+        case .Popularity:
+            return "rankPopularity"
+        case .Week:
+            return "weekStar"
+        }
+    }
+    
 }
 
 extension RankType {
@@ -54,12 +67,25 @@ extension RankType {
         case 12:
             rankType = RankType.Week(WeekRankType.This)
         case 13:
-            rankType = RankType.Week(WeekRankType.This)
+            rankType = RankType.Week(WeekRankType.Last)
         default:
             break;
         }
         
         return rankType
+    }
+    
+    var subRankDescription: String {
+        switch self {
+        case let .Star(subRank):
+            return subRank.description
+        case let .Wealth(subRank):
+            return subRank.description
+        case let .Popularity(subRank):
+            return subRank.description
+        case let .Week(subRank):
+            return subRank.description
+        }
     }
 }
 
@@ -88,8 +114,8 @@ enum TimeRankType: Int, CustomStringConvertible {
 }
 
 enum WeekRankType: Int, CustomStringConvertible {
-    case This = 1
-    case Last = 2
+    case This = 0
+    case Last = 1
     
     var description: String {
         switch self {
