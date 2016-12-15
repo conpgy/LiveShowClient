@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		534A37FD2B6745DBAB91B187 /* Pods_LiveShowClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA930718D3D3794E43757AD /* Pods_LiveShowClient.framework */; };
 		E41FFEFE1DFEECFB00CFEACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFEFD1DFEECFB00CFEACD /* AppDelegate.swift */; };
-		E41FFF001DFEECFB00CFEACD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFEFF1DFEECFB00CFEACD /* ViewController.swift */; };
 		E41FFF051DFEECFB00CFEACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41FFF041DFEECFB00CFEACD /* Assets.xcassets */; };
 		E41FFF131DFEECFB00CFEACD /* LiveShowClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFF121DFEECFB00CFEACD /* LiveShowClientTests.swift */; };
 		E41FFF1E1DFEECFB00CFEACD /* LiveShowClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFF1D1DFEECFB00CFEACD /* LiveShowClientUITests.swift */; };
@@ -20,11 +19,17 @@
 		E43779861DFFF19A00EEF792 /* RankType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779851DFFF19A00EEF792 /* RankType.swift */; };
 		E43779881DFFF32C00EEF792 /* RankDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779871DFFF32C00EEF792 /* RankDetailViewController.swift */; };
 		E437798B1E00162D00EEF792 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437798A1E00162D00EEF792 /* BaseNavigationController.swift */; };
+		E47426E81E0239F200AA4D9D /* WaterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426E71E0239F200AA4D9D /* WaterFlowLayout.swift */; };
+		E47426EA1E0261F500AA4D9D /* AnchorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426E91E0261F500AA4D9D /* AnchorCell.swift */; };
+		E47426EE1E02697300AA4D9D /* HomeAnchorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426ED1E02697300AA4D9D /* HomeAnchorType.swift */; };
+		E47426F11E02800400AA4D9D /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426F01E02800400AA4D9D /* Anchor.swift */; };
+		E47426F31E02805500AA4D9D /* HomeAnchorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426F21E02805500AA4D9D /* HomeAnchorViewModel.swift */; };
 		E4AABD191E00D7F500A36BFB /* SubRankTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD181E00D7F500A36BFB /* SubRankTitleView.swift */; };
 		E4AABD1B1E00D9E100A36BFB /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD1A1E00D9E100A36BFB /* Const.swift */; };
 		E4AABD1D1E00F01E00A36BFB /* RankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD1C1E00F01E00A36BFB /* RankModel.swift */; };
 		E4AABD1F1E0100D500A36BFB /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD1E1E0100D500A36BFB /* BaseModel.swift */; };
 		E4AABD231E0112D900A36BFB /* RankDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD221E0112D900A36BFB /* RankDetailCell.swift */; };
+		E4AABD261E01319500A36BFB /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD251E01319500A36BFB /* RoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +54,6 @@
 		614561DA230F52D31CF8F1D7 /* Pods-LiveShowClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveShowClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LiveShowClient/Pods-LiveShowClient.debug.xcconfig"; sourceTree = "<group>"; };
 		E41FFEFA1DFEECFB00CFEACD /* LiveShowClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveShowClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E41FFEFD1DFEECFB00CFEACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E41FFEFF1DFEECFB00CFEACD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E41FFF041DFEECFB00CFEACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E41FFF091DFEECFB00CFEACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E41FFF0E1DFEECFB00CFEACD /* LiveShowClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveShowClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,11 +69,17 @@
 		E43779851DFFF19A00EEF792 /* RankType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankType.swift; sourceTree = "<group>"; };
 		E43779871DFFF32C00EEF792 /* RankDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankDetailViewController.swift; sourceTree = "<group>"; };
 		E437798A1E00162D00EEF792 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		E47426E71E0239F200AA4D9D /* WaterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterFlowLayout.swift; sourceTree = "<group>"; };
+		E47426E91E0261F500AA4D9D /* AnchorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorCell.swift; sourceTree = "<group>"; };
+		E47426ED1E02697300AA4D9D /* HomeAnchorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAnchorType.swift; sourceTree = "<group>"; };
+		E47426F01E02800400AA4D9D /* Anchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		E47426F21E02805500AA4D9D /* HomeAnchorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAnchorViewModel.swift; sourceTree = "<group>"; };
 		E4AABD181E00D7F500A36BFB /* SubRankTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRankTitleView.swift; sourceTree = "<group>"; };
 		E4AABD1A1E00D9E100A36BFB /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		E4AABD1C1E00F01E00A36BFB /* RankModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankModel.swift; sourceTree = "<group>"; };
 		E4AABD1E1E0100D500A36BFB /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		E4AABD221E0112D900A36BFB /* RankDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankDetailCell.swift; sourceTree = "<group>"; };
+		E4AABD251E01319500A36BFB /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		F905E27F55E9E064D33BE071 /* Pods-LiveShowClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveShowClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-LiveShowClient/Pods-LiveShowClient.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,14 +151,11 @@
 		E41FFEFC1DFEECFB00CFEACD /* LiveShowClient */ = {
 			isa = PBXGroup;
 			children = (
+				E47426EF1E027FB800AA4D9D /* Entity */,
+				E4AABD281E01448700A36BFB /* Net */,
 				E4AABD1A1E00D9E100A36BFB /* Const.swift */,
-				E43779891E0015EF00EEF792 /* Base */,
-				E43779251DFF777F00EEF792 /* Discover */,
-				E43779271DFF777F00EEF792 /* Home */,
-				E43779291DFF777F00EEF792 /* Profile */,
-				E437792B1DFF777F00EEF792 /* Rank */,
 				E41FFEFD1DFEECFB00CFEACD /* AppDelegate.swift */,
-				E41FFEFF1DFEECFB00CFEACD /* ViewController.swift */,
+				E4AABD271E01443300A36BFB /* Sections */,
 				E41FFF041DFEECFB00CFEACD /* Assets.xcassets */,
 				E41FFF091DFEECFB00CFEACD /* Info.plist */,
 			);
@@ -185,6 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				E43779281DFF777F00EEF792 /* HomeViewController.swift */,
+				E47426E91E0261F500AA4D9D /* AnchorCell.swift */,
+				E47426ED1E02697300AA4D9D /* HomeAnchorType.swift */,
+				E47426F21E02805500AA4D9D /* HomeAnchorViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -215,8 +225,45 @@
 			children = (
 				E437798A1E00162D00EEF792 /* BaseNavigationController.swift */,
 				E4AABD1E1E0100D500A36BFB /* BaseModel.swift */,
+				E47426E71E0239F200AA4D9D /* WaterFlowLayout.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		E47426EF1E027FB800AA4D9D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E47426F01E02800400AA4D9D /* Anchor.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E4AABD241E01317200A36BFB /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				E4AABD251E01319500A36BFB /* RoomViewController.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		E4AABD271E01443300A36BFB /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				E43779891E0015EF00EEF792 /* Base */,
+				E43779271DFF777F00EEF792 /* Home */,
+				E4AABD241E01317200A36BFB /* Live */,
+				E43779251DFF777F00EEF792 /* Discover */,
+				E43779291DFF777F00EEF792 /* Profile */,
+				E437792B1DFF777F00EEF792 /* Rank */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
+		E4AABD281E01448700A36BFB /* Net */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Net;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,18 +451,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				E437792D1DFF777F00EEF792 /* DiscoverViewController.swift in Sources */,
-				E41FFF001DFEECFB00CFEACD /* ViewController.swift in Sources */,
 				E4AABD231E0112D900A36BFB /* RankDetailCell.swift in Sources */,
+				E4AABD261E01319500A36BFB /* RoomViewController.swift in Sources */,
+				E47426EE1E02697300AA4D9D /* HomeAnchorType.swift in Sources */,
 				E43779301DFF777F00EEF792 /* RankViewController.swift in Sources */,
 				E4AABD1F1E0100D500A36BFB /* BaseModel.swift in Sources */,
 				E4AABD1D1E00F01E00A36BFB /* RankModel.swift in Sources */,
+				E47426EA1E0261F500AA4D9D /* AnchorCell.swift in Sources */,
 				E43779861DFFF19A00EEF792 /* RankType.swift in Sources */,
 				E4AABD191E00D7F500A36BFB /* SubRankTitleView.swift in Sources */,
 				E437792F1DFF777F00EEF792 /* ProfileViewController.swift in Sources */,
 				E437798B1E00162D00EEF792 /* BaseNavigationController.swift in Sources */,
+				E47426E81E0239F200AA4D9D /* WaterFlowLayout.swift in Sources */,
 				E41FFEFE1DFEECFB00CFEACD /* AppDelegate.swift in Sources */,
 				E437792E1DFF777F00EEF792 /* HomeViewController.swift in Sources */,
+				E47426F31E02805500AA4D9D /* HomeAnchorViewModel.swift in Sources */,
 				E43779881DFFF32C00EEF792 /* RankDetailViewController.swift in Sources */,
+				E47426F11E02800400AA4D9D /* Anchor.swift in Sources */,
 				E4AABD1B1E00D9E100A36BFB /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

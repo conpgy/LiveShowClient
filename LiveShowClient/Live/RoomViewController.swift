@@ -1,18 +1,19 @@
 //
-//  ViewController.swift
+//  RoomViewController.swift
 //  LiveShowClient
 //
-//  Created by penggenyong on 16/12/12.
+//  Created by penggenyong on 2016/12/14.
 //  Copyright © 2016年 penggenyong. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class RoomViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +21,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
 
+extension RoomViewController {
+    fileprivate func loadRoomInfo() {
+        
+    }
+}

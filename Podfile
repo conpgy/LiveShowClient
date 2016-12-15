@@ -5,5 +5,6 @@ target 'LiveShowClient' do
     
     pod 'Alamofire', '~> 4.0.1'
     pod 'Kingfisher', '~>3.1.1'
+    pod 'SnapKit', '~> 3.0.2'
 
 end
