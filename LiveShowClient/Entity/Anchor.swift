@@ -12,7 +12,7 @@ struct Anchor {
     
     var uid: String = ""
     
-    var roomId: Int = 0
+    var roomId: String = ""
     
     var name: String = ""
     
@@ -42,7 +42,7 @@ extension Anchor {
             self.uid = uid
         }
         
-        if let roomId = dict["roomid"] as? Int {
+        if let roomId = dict["roomid"] as? String {
             self.roomId = roomId
         }
         

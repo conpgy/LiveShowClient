@@ -94,6 +94,9 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let roomVc = RoomViewController()
+        roomVc.anchor = anchorViewModels[indexPath.row].anchor
+        navigationController?.pushViewController(roomVc, animated: true)
     }
 }
 

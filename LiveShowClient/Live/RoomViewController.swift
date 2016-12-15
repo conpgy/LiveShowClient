@@ -7,24 +7,228 @@
 //
 
 import UIKit
+import Alamofire
+import SnapKit
 
 class RoomViewController: UIViewController {
+    
+    var anchor: Anchor?
+    
+    fileprivate var backgroundImageView: UIImageView!
+    fileprivate var iconImageView: UIImageView!
+    fileprivate var focusView: UIView!
+    fileprivate var onlineView: UIView!
+    fileprivate var contributeView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        initUI()
+        loadRoomInfo()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func initUI() {
+        setupBackgroundImageView()
+        setupCloseButton()
+        setupFocusView()
+        setupOnlineView()
+        setupContributeView()
+    }
+    
+    private func setupBackgroundImageView() {
+        backgroundImageView = UIImageView(frame: view.bounds)
+        view.addSubview(backgroundImageView)
+        backgroundImageView.setImage(anchor?.pic74)
+        setupBlurView()
+    }
+    
+    private func setupBlurView() {
+        let blur = UIBlurEffect(style: .dark)
+        let blurView = UIVisualEffectView(effect: blur)
+        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        blurView.frame = backgroundImageView.bounds
+        backgroundImageView.addSubview(blurView)
+    }
+    
+    private func setupCloseButton() {
+        let closeButton = UIButton(frame: CGRect(x: Const.screenWidth - 50 - 10, y: 20, width: 50, height: 50))
+        closeButton.setImage(UIImage(named: "menu_btn_close"), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonClick), for: .touchUpInside)
+        view.addSubview(closeButton)
+    }
+    
+    private func setupFocusView() {
+        focusView = UIView()
+        focusView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        focusView.layer.cornerRadius = 3
+        view.addSubview(focusView)
+        focusView.snp.makeConstraints { (make) in
+            make.height.equalTo(32)
+            make.top.equalTo(30)
+            make.left.equalTo(10)
+        }
+        
+        let iconImageView = UIImageView()
+        iconImageView.setImage(anchor?.pic51)
+        iconImageView.contentMode = .scaleAspectFill
+        iconImageView.layer.cornerRadius = 13
+        iconImageView.layer.masksToBounds = true
+        focusView.addSubview(iconImageView)
+        iconImageView.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 26, height: 26))
+            make.left.equalTo(5)
+            make.top.equalTo(3)
+        }
+        
+        // anchor nickname
+        let nicknameLabel = UILabel()
+        nicknameLabel.font = UIFont.boldSystemFont(ofSize: 11)
+        nicknameLabel.textColor = UIColor.white
+        focusView.addSubview(nicknameLabel)
+        nicknameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(3)
+            make.left.equalTo(iconImageView.snp.right).offset(8)
+        }
+        nicknameLabel.text = anchor?.name
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        // room number
+        let roomNumberLabel = UILabel()
+        roomNumberLabel.font = UIFont.systemFont(ofSize: 9)
+        roomNumberLabel.textColor = UIColor.white
+        focusView.addSubview(roomNumberLabel)
+        roomNumberLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(-3)
+            make.left.equalTo(nicknameLabel.snp.left)
+        }
+        roomNumberLabel.text = "房间号: \(anchor?.roomId ?? "")"
+        
+        // focus button
+        let focusButton = UIButton(type: .system)
+        focusButton.setTitle("关注", for: .normal)
+        focusButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        focusButton.setTitleColor(UIColor.white, for: .normal)
+        focusButton.backgroundColor = UIColor(red: 214/255.0, green: 134/255.0, blue: 67/255.0, alpha: 1)
+        focusButton.layer.cornerRadius = 2
+        focusView.addSubview(focusButton)
+        focusButton.addTarget(self, action: #selector(focusButtonClick), for: .touchUpInside)
+        focusButton.snp.makeConstraints { (make) in
+            make.width.equalTo(50)
+            make.top.equalTo(5)
+            make.bottom.equalTo(-5)
+            make.left.equalTo(roomNumberLabel.snp.right).offset(15)
+            make.right.equalTo(-5)
+        }
+    }
+    
+    private func setupOnlineView() {
+        onlineView = UIView()
+        onlineView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        onlineView.layer.cornerRadius = 3
+        view.addSubview(onlineView)
+        
+        let onlineDescLabel = UILabel()
+        onlineDescLabel.font = UIFont.systemFont(ofSize: 10)
+        onlineDescLabel.textColor = UIColor(red: 214/255.0, green: 134/255.0, blue: 67/255.0, alpha: 1)
+        onlineDescLabel.text = "在线"
+        onlineView.addSubview(onlineDescLabel)
+        
+        let onlineLabel = UILabel()
+        onlineLabel.font = UIFont.systemFont(ofSize: 10)
+        onlineLabel.textColor = UIColor.white
+        onlineLabel.text = "\(anchor?.focus ?? 0)"
+        onlineView.addSubview(onlineLabel)
+        
+        
+        onlineView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.focusView.snp.bottom).offset(5)
+            make.left.equalTo(self.focusView.snp.left)
+            make.bottom.equalTo(onlineDescLabel.snp.bottom).offset(5)
+            make.right.equalTo(onlineLabel.snp.right).offset(5)
+        }
+        onlineDescLabel.snp.makeConstraints { (make) in
+            make.top.left.equalTo(5)
+        }
+        onlineLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(onlineDescLabel.snp.top)
+            make.left.equalTo(onlineDescLabel.snp.right).offset(5)
+        }
+        
+    }
+    
+    private func setupContributeView() {
+        contributeView = UIView()
+        contributeView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        contributeView.layer.cornerRadius = 3
+        view.addSubview(contributeView)
+        
+        let contributeDescLabel = UILabel()
+        contributeDescLabel.font = UIFont.systemFont(ofSize: 10)
+        contributeDescLabel.textColor = UIColor(red: 214/255.0, green: 134/255.0, blue: 67/255.0, alpha: 1)
+        contributeDescLabel.text = "贡献"
+        contributeView.addSubview(contributeDescLabel)
+        
+        let contributeLabel = UILabel()
+        contributeLabel.font = UIFont.systemFont(ofSize: 10)
+        contributeLabel.textColor = UIColor.white
+        contributeLabel.text = "382932"
+        contributeView.addSubview(contributeLabel)
+        
+        let arrowImageView = UIImageView()
+        arrowImageView.image = UIImage(named: "zhibo_icon_arrow")
+        contributeView.addSubview(arrowImageView)
+        
+        
+        contributeView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.onlineView.snp.top)
+            make.left.equalTo(self.onlineView.snp.right).offset(5)
+            make.bottom.equalTo(contributeDescLabel.snp.bottom).offset(5)
+            make.right.equalTo(arrowImageView.snp.right).offset(5)
+        }
+        contributeDescLabel.snp.makeConstraints { (make) in
+            make.top.left.equalTo(5)
+        }
+        contributeLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(contributeDescLabel.snp.top)
+            make.left.equalTo(contributeDescLabel.snp.right).offset(5)
+        }
+        arrowImageView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(contributeLabel.snp.centerY)
+            make.left.equalTo(contributeLabel.snp.right).offset(5)
+        }
+        
     }
 
 }
 
 extension RoomViewController {
-    fileprivate func loadRoomInfo() {
+    @objc fileprivate func closeButtonClick() {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @objc fileprivate func focusButtonClick() {
         
+    }
+}
+
+extension RoomViewController {
+    fileprivate func loadRoomInfo() {
+//        guard let roomId = anchor?.roomId, let uid = anchor?.uid else {
+//            return
+//        }
+//        let params:[String: Any] = ["roomId": roomId, "uid": uid]
+//        Alamofire.request(Const.anchorUrl, method: .get, parameters: params).response { (response) in
+//        }
     }
 }
