@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SnapKit
+import IJKMediaFramework
 
 class RoomViewController: UIViewController {
     
@@ -19,6 +20,10 @@ class RoomViewController: UIViewController {
     fileprivate var focusView: UIView!
     fileprivate var onlineView: UIView!
     fileprivate var contributeView: UIView!
+    
+    fileprivate var liveUrl: String?
+    
+    fileprivate var player: IJKFFMoviePlayerController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +42,8 @@ class RoomViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        player?.shutdown()
     }
     
     private func initUI() {
@@ -224,11 +231,47 @@ extension RoomViewController {
 
 extension RoomViewController {
     fileprivate func loadRoomInfo() {
-//        guard let roomId = anchor?.roomId, let uid = anchor?.uid else {
-//            return
-//        }
-//        let params:[String: Any] = ["roomId": roomId, "uid": uid]
-//        Alamofire.request(Const.anchorUrl, method: .get, parameters: params).response { (response) in
-//        }
+        guard let roomId = anchor?.roomId, let uid = anchor?.uid else {
+            return
+        }
+        let params:[String: Any] = ["roomId": roomId, "uid": uid]
+        Alamofire.request(Const.liveUrl, method: .get, parameters: params).responseString { (response) in
+            self.liveUrl = response.result.value
+            self.livePlay()
+        }
+    }
+    
+    
+    // live play
+    fileprivate func livePlay() {
+        
+        // close the debug log
+        IJKFFMoviePlayerController.setLogReport(false)
+        
+        // init the player
+        guard let liverUrl = self.liveUrl else {
+            return
+        }
+        
+        let url = URL(string: liverUrl)
+        player = IJKFFMoviePlayerController(contentURL: url, with: nil)
+        guard let player = self.player else {
+            return
+        }
+        
+        
+        if anchor?.push == 1 {
+            player.view.frame = CGRect(x: 0, y: 150, width: Const.screenWidth, height: Const.screenWidth * 3/4)
+        } else {
+            player.view.frame = view.bounds
+        }
+        
+        backgroundImageView.insertSubview(player.view, at: 1)
+        
+        // player
+        DispatchQueue.global().async {
+            player.prepareToPlay()
+            player.play()
+        }
     }
 }

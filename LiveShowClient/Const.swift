@@ -22,5 +22,6 @@ class Const {
     static let rankPopularityUrl = domain + "/rankPopularity"
     static let rankAllUrl = domain + "/rankAll"
     static let anchorUrl = domain + "/home/anchors"
+    static let liveUrl = domain + "/play/live"
     
 }

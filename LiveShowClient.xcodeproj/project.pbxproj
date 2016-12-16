@@ -12,6 +12,7 @@
 		E41FFF051DFEECFB00CFEACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41FFF041DFEECFB00CFEACD /* Assets.xcassets */; };
 		E41FFF131DFEECFB00CFEACD /* LiveShowClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFF121DFEECFB00CFEACD /* LiveShowClientTests.swift */; };
 		E41FFF1E1DFEECFB00CFEACD /* LiveShowClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFF1D1DFEECFB00CFEACD /* LiveShowClientUITests.swift */; };
+		E42D4DDB1E03C4A200525820 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E42D4DDA1E03C4A200525820 /* .gitignore */; };
 		E437792D1DFF777F00EEF792 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779261DFF777F00EEF792 /* DiscoverViewController.swift */; };
 		E437792E1DFF777F00EEF792 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779281DFF777F00EEF792 /* HomeViewController.swift */; };
 		E437792F1DFF777F00EEF792 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437792A1DFF777F00EEF792 /* ProfileViewController.swift */; };
@@ -19,6 +20,7 @@
 		E43779861DFFF19A00EEF792 /* RankType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779851DFFF19A00EEF792 /* RankType.swift */; };
 		E43779881DFFF32C00EEF792 /* RankDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779871DFFF32C00EEF792 /* RankDetailViewController.swift */; };
 		E437798B1E00162D00EEF792 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437798A1E00162D00EEF792 /* BaseNavigationController.swift */; };
+		E438EBBE1E0397D90015B677 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E438EBBD1E0397D90015B677 /* libz.tbd */; };
 		E47426E81E0239F200AA4D9D /* WaterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426E71E0239F200AA4D9D /* WaterFlowLayout.swift */; };
 		E47426EA1E0261F500AA4D9D /* AnchorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426E91E0261F500AA4D9D /* AnchorCell.swift */; };
 		E47426EE1E02697300AA4D9D /* HomeAnchorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426ED1E02697300AA4D9D /* HomeAnchorType.swift */; };
@@ -63,6 +65,7 @@
 		E41FFF191DFEECFB00CFEACD /* LiveShowClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiveShowClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E41FFF1D1DFEECFB00CFEACD /* LiveShowClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveShowClientUITests.swift; sourceTree = "<group>"; };
 		E41FFF1F1DFEECFB00CFEACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E42D4DDA1E03C4A200525820 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E43779261DFF777F00EEF792 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E43779281DFF777F00EEF792 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E437792A1DFF777F00EEF792 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		E43779851DFFF19A00EEF792 /* RankType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankType.swift; sourceTree = "<group>"; };
 		E43779871DFFF32C00EEF792 /* RankDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankDetailViewController.swift; sourceTree = "<group>"; };
 		E437798A1E00162D00EEF792 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		E438EBBD1E0397D90015B677 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E47426E71E0239F200AA4D9D /* WaterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterFlowLayout.swift; sourceTree = "<group>"; };
 		E47426E91E0261F500AA4D9D /* AnchorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorCell.swift; sourceTree = "<group>"; };
 		E47426ED1E02697300AA4D9D /* HomeAnchorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAnchorType.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E438EBBE1E0397D90015B677 /* libz.tbd in Frameworks */,
 				534A37FD2B6745DBAB91B187 /* Pods_LiveShowClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +119,7 @@
 		10BCCDA0377E249D13DF7398 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E438EBBD1E0397D90015B677 /* libz.tbd */,
 				0FA930718D3D3794E43757AD /* Pods_LiveShowClient.framework */,
 			);
 			name = Frameworks;
@@ -131,6 +137,7 @@
 		E41FFEF11DFEECFB00CFEACD = {
 			isa = PBXGroup;
 			children = (
+				E42D4DDA1E03C4A200525820 /* .gitignore */,
 				E41FFEFC1DFEECFB00CFEACD /* LiveShowClient */,
 				E41FFF111DFEECFB00CFEACD /* LiveShowClientTests */,
 				E41FFF1C1DFEECFB00CFEACD /* LiveShowClientUITests */,
@@ -380,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42D4DDB1E03C4A200525820 /* .gitignore in Resources */,
 				E41FFF051DFEECFB00CFEACD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,6 +616,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 2L238S7CXD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LiveShowClient/IJKPlayer",
+				);
 				INFOPLIST_FILE = LiveShowClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pgy.LiveShowClient;
@@ -623,6 +635,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 2L238S7CXD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LiveShowClient/IJKPlayer",
+				);
 				INFOPLIST_FILE = LiveShowClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pgy.LiveShowClient;
