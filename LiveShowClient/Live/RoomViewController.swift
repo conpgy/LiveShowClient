@@ -52,6 +52,7 @@ class RoomViewController: UIViewController {
         setupFocusView()
         setupOnlineView()
         setupContributeView()
+        setupBottomStackView()
     }
     
     private func setupBackgroundImageView() {
@@ -216,15 +217,57 @@ class RoomViewController: UIViewController {
         }
         
     }
+    
+    private func setupBottomStackView() {
+        
+        let stackView = UIStackView(frame: CGRect(x: 0, y: Const.screenHeight - 50, width: Const.screenWidth, height: 50))
+        view.addSubview(stackView)
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 0
+        stackView.alignment = .fill
+        
+        
+        let images = ["room_btn_chat", "menu_btn_share", "room_btn_gift", "room_btn_more", "room_btn_qfstar"]
+        let selectors = [#selector(chatButtonClick), #selector(shareButtonClick), #selector(giftButtonClick), #selector(moreButtonClick), #selector(starButtonClick)]
+        for i in 0...4 {
+            let button = UIButton()
+            button.setImage(UIImage(named: images[i]), for: .normal)
+            button.addTarget(self, action: selectors[i], for: .touchUpInside)
+            stackView.addArrangedSubview(button)
+        }
+    }
 
 }
 
 extension RoomViewController {
+    
     @objc fileprivate func closeButtonClick() {
         _ = navigationController?.popViewController(animated: true)
     }
     
     @objc fileprivate func focusButtonClick() {
+        
+    }
+    
+    @objc fileprivate func starButtonClick(button: UIButton) {
+        button.isSelected = !button.isSelected
+        button.isSelected ? GranuleEmitter.sharedInstance.emitGranules(on: view) : GranuleEmitter.sharedInstance.stop()
+    }
+    
+    @objc fileprivate func chatButtonClick(button: UIButton) {
+        
+    }
+    
+    @objc fileprivate func shareButtonClick(button: UIButton) {
+        
+    }
+    
+    @objc fileprivate func giftButtonClick(button: UIButton) {
+        
+    }
+    
+    @objc fileprivate func moreButtonClick(button: UIButton) {
         
     }
 }

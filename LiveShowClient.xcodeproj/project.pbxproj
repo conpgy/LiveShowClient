@@ -13,6 +13,8 @@
 		E41FFF131DFEECFB00CFEACD /* LiveShowClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFF121DFEECFB00CFEACD /* LiveShowClientTests.swift */; };
 		E41FFF1E1DFEECFB00CFEACD /* LiveShowClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FFF1D1DFEECFB00CFEACD /* LiveShowClientUITests.swift */; };
 		E42D4DDB1E03C4A200525820 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E42D4DDA1E03C4A200525820 /* .gitignore */; };
+		E42D4DDE1E03C52500525820 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42D4DDD1E03C52500525820 /* IJKMediaFramework.framework */; };
+		E42D4DE01E03D1D900525820 /* GranuleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D4DDF1E03D1D900525820 /* GranuleEmitter.swift */; };
 		E437792D1DFF777F00EEF792 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779261DFF777F00EEF792 /* DiscoverViewController.swift */; };
 		E437792E1DFF777F00EEF792 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779281DFF777F00EEF792 /* HomeViewController.swift */; };
 		E437792F1DFF777F00EEF792 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437792A1DFF777F00EEF792 /* ProfileViewController.swift */; };
@@ -66,6 +68,8 @@
 		E41FFF1D1DFEECFB00CFEACD /* LiveShowClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveShowClientUITests.swift; sourceTree = "<group>"; };
 		E41FFF1F1DFEECFB00CFEACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E42D4DDA1E03C4A200525820 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E42D4DDD1E03C52500525820 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		E42D4DDF1E03D1D900525820 /* GranuleEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GranuleEmitter.swift; sourceTree = "<group>"; };
 		E43779261DFF777F00EEF792 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E43779281DFF777F00EEF792 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E437792A1DFF777F00EEF792 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42D4DDE1E03C52500525820 /* IJKMediaFramework.framework in Frameworks */,
 				E438EBBE1E0397D90015B677 /* libz.tbd in Frameworks */,
 				534A37FD2B6745DBAB91B187 /* Pods_LiveShowClient.framework in Frameworks */,
 			);
@@ -160,6 +165,7 @@
 		E41FFEFC1DFEECFB00CFEACD /* LiveShowClient */ = {
 			isa = PBXGroup;
 			children = (
+				E42D4DDC1E03C52500525820 /* IJKPlayer */,
 				E47426F41E029C5F00AA4D9D /* Utils */,
 				E47426EF1E027FB800AA4D9D /* Entity */,
 				E4AABD1A1E00D9E100A36BFB /* Const.swift */,
@@ -187,6 +193,14 @@
 				E41FFF1F1DFEECFB00CFEACD /* Info.plist */,
 			);
 			path = LiveShowClientUITests;
+			sourceTree = "<group>";
+		};
+		E42D4DDC1E03C52500525820 /* IJKPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E42D4DDD1E03C52500525820 /* IJKMediaFramework.framework */,
+			);
+			path = IJKPlayer;
 			sourceTree = "<group>";
 		};
 		E43779251DFF777F00EEF792 /* Discover */ = {
@@ -251,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				E47426F51E029CBD00AA4D9D /* ImageViewExtension.swift */,
+				E42D4DDF1E03D1D900525820 /* GranuleEmitter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -468,6 +483,7 @@
 				E47426EE1E02697300AA4D9D /* HomeAnchorType.swift in Sources */,
 				E43779301DFF777F00EEF792 /* RankViewController.swift in Sources */,
 				E4AABD1F1E0100D500A36BFB /* BaseModel.swift in Sources */,
+				E42D4DE01E03D1D900525820 /* GranuleEmitter.swift in Sources */,
 				E4AABD1D1E00F01E00A36BFB /* RankModel.swift in Sources */,
 				E47426EA1E0261F500AA4D9D /* AnchorCell.swift in Sources */,
 				E43779861DFFF19A00EEF792 /* RankType.swift in Sources */,
