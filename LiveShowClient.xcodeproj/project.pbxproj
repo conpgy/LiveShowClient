@@ -15,6 +15,9 @@
 		E42D4DDB1E03C4A200525820 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E42D4DDA1E03C4A200525820 /* .gitignore */; };
 		E42D4DDE1E03C52500525820 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E42D4DDD1E03C52500525820 /* IJKMediaFramework.framework */; };
 		E42D4DE01E03D1D900525820 /* GranuleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D4DDF1E03D1D900525820 /* GranuleEmitter.swift */; };
+		E42D4DE41E03E9E200525820 /* SocialShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D4DE31E03E9E200525820 /* SocialShareView.swift */; };
+		E42D4DE61E03ED2F00525820 /* SocialShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D4DE51E03ED2F00525820 /* SocialShareType.swift */; };
+		E42D4DE81E03F6FB00525820 /* MoreInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D4DE71E03F6FB00525820 /* MoreInfoButton.swift */; };
 		E437792D1DFF777F00EEF792 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779261DFF777F00EEF792 /* DiscoverViewController.swift */; };
 		E437792E1DFF777F00EEF792 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779281DFF777F00EEF792 /* HomeViewController.swift */; };
 		E437792F1DFF777F00EEF792 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437792A1DFF777F00EEF792 /* ProfileViewController.swift */; };
@@ -70,6 +73,9 @@
 		E42D4DDA1E03C4A200525820 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E42D4DDD1E03C52500525820 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		E42D4DDF1E03D1D900525820 /* GranuleEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GranuleEmitter.swift; sourceTree = "<group>"; };
+		E42D4DE31E03E9E200525820 /* SocialShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialShareView.swift; sourceTree = "<group>"; };
+		E42D4DE51E03ED2F00525820 /* SocialShareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialShareType.swift; sourceTree = "<group>"; };
+		E42D4DE71E03F6FB00525820 /* MoreInfoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoButton.swift; sourceTree = "<group>"; };
 		E43779261DFF777F00EEF792 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		E43779281DFF777F00EEF792 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E437792A1DFF777F00EEF792 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +209,23 @@
 			path = IJKPlayer;
 			sourceTree = "<group>";
 		};
+		E42D4DE11E03E99300525820 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E42D4DE21E03E9BD00525820 /* SocialShareView */,
+				E42D4DE71E03F6FB00525820 /* MoreInfoButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E42D4DE21E03E9BD00525820 /* SocialShareView */ = {
+			isa = PBXGroup;
+			children = (
+				E42D4DE31E03E9E200525820 /* SocialShareView.swift */,
+			);
+			name = SocialShareView;
+			sourceTree = "<group>";
+		};
 		E43779251DFF777F00EEF792 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				E47426F01E02800400AA4D9D /* Anchor.swift */,
+				E42D4DE51E03ED2F00525820 /* SocialShareType.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -273,6 +297,7 @@
 		E4AABD241E01317200A36BFB /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				E42D4DE11E03E99300525820 /* View */,
 				E4AABD251E01319500A36BFB /* RoomViewController.swift */,
 			);
 			path = Live;
@@ -479,18 +504,21 @@
 				E437792D1DFF777F00EEF792 /* DiscoverViewController.swift in Sources */,
 				E4AABD231E0112D900A36BFB /* RankDetailCell.swift in Sources */,
 				E47426F61E029CBD00AA4D9D /* ImageViewExtension.swift in Sources */,
+				E42D4DE41E03E9E200525820 /* SocialShareView.swift in Sources */,
 				E4AABD261E01319500A36BFB /* RoomViewController.swift in Sources */,
 				E47426EE1E02697300AA4D9D /* HomeAnchorType.swift in Sources */,
 				E43779301DFF777F00EEF792 /* RankViewController.swift in Sources */,
 				E4AABD1F1E0100D500A36BFB /* BaseModel.swift in Sources */,
 				E42D4DE01E03D1D900525820 /* GranuleEmitter.swift in Sources */,
 				E4AABD1D1E00F01E00A36BFB /* RankModel.swift in Sources */,
+				E42D4DE81E03F6FB00525820 /* MoreInfoButton.swift in Sources */,
 				E47426EA1E0261F500AA4D9D /* AnchorCell.swift in Sources */,
 				E43779861DFFF19A00EEF792 /* RankType.swift in Sources */,
 				E4AABD191E00D7F500A36BFB /* SubRankTitleView.swift in Sources */,
 				E437792F1DFF777F00EEF792 /* ProfileViewController.swift in Sources */,
 				E437798B1E00162D00EEF792 /* BaseNavigationController.swift in Sources */,
 				E47426E81E0239F200AA4D9D /* WaterFlowLayout.swift in Sources */,
+				E42D4DE61E03ED2F00525820 /* SocialShareType.swift in Sources */,
 				E41FFEFE1DFEECFB00CFEACD /* AppDelegate.swift in Sources */,
 				E437792E1DFF777F00EEF792 /* HomeViewController.swift in Sources */,
 				E47426F31E02805500AA4D9D /* HomeAnchorViewModel.swift in Sources */,

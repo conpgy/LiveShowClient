@@ -11,6 +11,8 @@ import Alamofire
 import SnapKit
 import IJKMediaFramework
 
+private let socialShareViewHeight: CGFloat = 250
+
 class RoomViewController: UIViewController {
     
     var anchor: Anchor?
@@ -20,6 +22,7 @@ class RoomViewController: UIViewController {
     fileprivate var focusView: UIView!
     fileprivate var onlineView: UIView!
     fileprivate var contributeView: UIView!
+    fileprivate var socialShareView: SocialShareView!
     
     fileprivate var liveUrl: String?
     
@@ -53,6 +56,7 @@ class RoomViewController: UIViewController {
         setupOnlineView()
         setupContributeView()
         setupBottomStackView()
+        setupBottomFeatureView()
     }
     
     private func setupBackgroundImageView() {
@@ -238,6 +242,10 @@ class RoomViewController: UIViewController {
         }
     }
 
+    private func setupBottomFeatureView() {
+        socialShareView = SocialShareView(frame: CGRect(x: 0, y: Const.screenHeight, width: Const.screenWidth, height: socialShareViewHeight))
+        view.addSubview(socialShareView)
+    }
 }
 
 extension RoomViewController {
@@ -260,7 +268,10 @@ extension RoomViewController {
     }
     
     @objc fileprivate func shareButtonClick(button: UIButton) {
-        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.socialShareView.frame.origin.y = Const.screenHeight - socialShareViewHeight
+        })
+        socialShareView.show()
     }
     
     @objc fileprivate func giftButtonClick(button: UIButton) {
@@ -269,6 +280,13 @@ extension RoomViewController {
     
     @objc fileprivate func moreButtonClick(button: UIButton) {
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        UIView.animate(withDuration: 0.25, animations: {
+            self.socialShareView.frame.origin.y = Const.screenHeight
+        })
     }
 }
 
