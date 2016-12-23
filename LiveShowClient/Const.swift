@@ -14,7 +14,7 @@ class Const {
     static let navigationBarHeight: CGFloat = 64
     static let statusBarHeight: CGFloat = 20
     
-    static let domain = "http://192.168.31.147:8092"
+    static let domain = "http://www.onejiall.com:8092"
     
     // url
     static let rankStarUrl = domain + "/rankStar"
