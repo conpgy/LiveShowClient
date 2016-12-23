@@ -14,6 +14,8 @@ private let edgeMargin: CGFloat = 8
 private let anchorCellID = "anchorCellID"
 
 class HomeViewController: UIViewController {
+    
+    let pageSize = 10
 
     fileprivate lazy var collectionView: UICollectionView = {
        let layout = WaterFlowLayout()
@@ -41,7 +43,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         initUI()
-        loadData(type: currentHomeAnchorType.rawValue, index: 0)
+        loadData(type: currentHomeAnchorType.rawValue, start: 0)
     }
 
     
@@ -49,9 +51,9 @@ class HomeViewController: UIViewController {
         view.addSubview(collectionView)
     }
     
-    fileprivate func loadData(type:Int, index: Int) {
+    fileprivate func loadData(type:Int, start: Int) {
         
-        let params = ["type": type, "index": index, "size": 48]
+        let params = ["type": type, "start": start, "pageSize": pageSize]
         Alamofire.request(Const.anchorUrl, method: .get, parameters: params).responseJSON { (response) in
             guard let result = response.result.value else {
                 print(response.result.error!)
@@ -59,10 +61,27 @@ class HomeViewController: UIViewController {
             }
             
             guard let resultDict = result as? [String : Any] else { return }
-            guard let msgDict = resultDict["message"] as? [String : Any] else { return }
-            guard let dataArray = msgDict["anchors"] as? [[String : Any]] else { return }
             
-            for (index,dict) in dataArray.enumerated() {
+            guard let message = resultDict["message"] as? String else {
+                print("message empty")
+                return
+            }
+            
+            
+            guard let code = resultDict["code"] as? Int else {
+                print("code empty")
+                return
+            }
+            
+            guard let anchorsDict = resultDict["anchors"] as? [[String: Any]] else {
+                print("anchors error")
+                return
+            }
+            
+            print("message: " + message)
+            print("code: \(code)")
+            
+            for (index,dict) in anchorsDict.enumerated() {
                 let anchor = Anchor(dict: dict)
                 let vm = HomeAnchorViewModel(with: anchor)
                 vm.isEven = index % 2 == 0
@@ -84,8 +103,8 @@ extension HomeViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: anchorCellID, for: indexPath) as! AnchorCell
         cell.anchorViewModel = anchorViewModels[indexPath.item]
         
-        if indexPath.item == anchorViewModels.count - 1 {
-            loadData(type: currentHomeAnchorType.hashValue, index: anchorViewModels.count)
+        if indexPath.item == anchorViewModels.count - 1 && anchorViewModels.count >= pageSize {
+            loadData(type: currentHomeAnchorType.hashValue, start: anchorViewModels.count)
         }
         
         return cell

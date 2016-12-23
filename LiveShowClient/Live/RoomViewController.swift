@@ -124,7 +124,7 @@ class RoomViewController: UIViewController {
             make.bottom.equalTo(-3)
             make.left.equalTo(nicknameLabel.snp.left)
         }
-        roomNumberLabel.text = "房间号: \(anchor?.roomId ?? "")"
+        roomNumberLabel.text = "房间号: \(anchor?.roomId ?? 0)"
         
         // focus button
         let focusButton = UIButton(type: .system)
@@ -292,12 +292,31 @@ extension RoomViewController {
 
 extension RoomViewController {
     fileprivate func loadRoomInfo() {
-        guard let roomId = anchor?.roomId, let uid = anchor?.uid else {
+        guard let roomId = anchor?.roomId else {
             return
         }
-        let params:[String: Any] = ["roomId": roomId, "uid": uid]
-        Alamofire.request(Const.liveUrl, method: .get, parameters: params).responseString { (response) in
-            self.liveUrl = response.result.value
+        let params:[String: Any] = ["roomId": roomId]
+        Alamofire.request(Const.liveUrl, method: .get, parameters: params).responseJSON { (response) in
+            
+            guard let result = response.result.value else {
+                print(response.result.error!)
+                return
+            }
+            print(result)
+            
+            guard let resultDict = result as? [String : Any] else { return }
+            
+            guard let _ = resultDict["code"] as? Int else {
+                print("code empty")
+                return
+            }
+            
+            guard let url = resultDict["url"] as? String else {
+                print("url is null")
+                return
+            }
+            
+            self.liveUrl = url
             self.livePlay()
         }
     }
@@ -313,6 +332,7 @@ extension RoomViewController {
         guard let liverUrl = self.liveUrl else {
             return
         }
+        print("liveUrl: " + liverUrl)
         
         let url = URL(string: liverUrl)
         player = IJKFFMoviePlayerController(contentURL: url, with: nil)

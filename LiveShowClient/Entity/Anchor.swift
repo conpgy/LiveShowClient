@@ -12,7 +12,7 @@ struct Anchor {
     
     var uid: String = ""
     
-    var roomId: String = ""
+    var roomId: Int = 0
     
     var name: String = ""
     
@@ -21,28 +21,27 @@ struct Anchor {
     var pic74: String = ""
     
     // is on live
-    var live: Bool = false
+    var isLive = false
+    
+    var type = 0
     
     var push: Int = 0
     
     // focus count
     var focus: Int = 0
     
-    var weeklyStar: Int = 0
-    
-    var yearParty: Int = 0
-    
     init() {}
     
 }
 
 extension Anchor {
+    
     init(dict: [String: Any]) {
         if let uid = dict["uid"] as? String {
             self.uid = uid
         }
         
-        if let roomId = dict["roomid"] as? String {
+        if let roomId = dict["roomId"] as? Int {
             self.roomId = roomId
         }
         
@@ -59,7 +58,7 @@ extension Anchor {
         }
         
         if let live = dict["live"] as? Bool {
-            self.live = live
+            self.isLive = live
         }
         
         if let push = dict["push"] as? Int {
@@ -70,12 +69,5 @@ extension Anchor {
             self.focus = focus
         }
         
-        if let weeklyStar = dict["weeklyStar"] as? Int {
-            self.weeklyStar = weeklyStar
-        }
-        
-        if let yearParty = dict["yearParty"] as? Int {
-            self.yearParty = yearParty
-        }
     }
 }

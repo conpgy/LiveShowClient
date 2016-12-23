@@ -24,7 +24,7 @@ class AnchorCell: UICollectionViewCell {
             }
             
             nicknameLabel.text = vm.anchor.name
-            liveImageView.isHidden = !vm.anchor.live
+            liveImageView.isHidden = !vm.anchor.isLive
             focusButton.setTitle("\(vm.anchor.focus)", for: .normal)
             pictureImageView.kf.setImage(with: URL(string: (vm.isEven ? vm.anchor.pic74 : vm.anchor.pic51)))
         }
