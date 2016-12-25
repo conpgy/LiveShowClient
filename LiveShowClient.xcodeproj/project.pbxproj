@@ -25,6 +25,9 @@
 		E43779881DFFF32C00EEF792 /* RankDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43779871DFFF32C00EEF792 /* RankDetailViewController.swift */; };
 		E437798B1E00162D00EEF792 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437798A1E00162D00EEF792 /* BaseNavigationController.swift */; };
 		E438EBBE1E0397D90015B677 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E438EBBD1E0397D90015B677 /* libz.tbd */; };
+		E469B44B1E0F79720057E864 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E469B4481E0F79720057E864 /* Socket.swift */; };
+		E469B44C1E0F79720057E864 /* SocketProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E469B4491E0F79720057E864 /* SocketProtocols.swift */; };
+		E469B44D1E0F79720057E864 /* SocketUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E469B44A1E0F79720057E864 /* SocketUtils.swift */; };
 		E47426E81E0239F200AA4D9D /* WaterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426E71E0239F200AA4D9D /* WaterFlowLayout.swift */; };
 		E47426EA1E0261F500AA4D9D /* AnchorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426E91E0261F500AA4D9D /* AnchorCell.swift */; };
 		E47426EE1E02697300AA4D9D /* HomeAnchorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47426ED1E02697300AA4D9D /* HomeAnchorType.swift */; };
@@ -37,6 +40,8 @@
 		E4AABD1F1E0100D500A36BFB /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD1E1E0100D500A36BFB /* BaseModel.swift */; };
 		E4AABD231E0112D900A36BFB /* RankDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD221E0112D900A36BFB /* RankDetailCell.swift */; };
 		E4AABD261E01319500A36BFB /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABD251E01319500A36BFB /* RoomViewController.swift */; };
+		E4F7E3E81E0FC18900EC4186 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7E3E71E0FC18900EC4186 /* ChatService.swift */; };
+		E4F7E3EA1E0FC9BE00EC4186 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F7E3E91E0FC9BE00EC4186 /* AVFoundation.framework */; };
 		E4F9CA351E042F5100530B7D /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F9CA341E042F5100530B7D /* IJKMediaFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +88,10 @@
 		E43779871DFFF32C00EEF792 /* RankDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankDetailViewController.swift; sourceTree = "<group>"; };
 		E437798A1E00162D00EEF792 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		E438EBBD1E0397D90015B677 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E469B4471E0F79720057E864 /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
+		E469B4481E0F79720057E864 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		E469B4491E0F79720057E864 /* SocketProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketProtocols.swift; sourceTree = "<group>"; };
+		E469B44A1E0F79720057E864 /* SocketUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketUtils.swift; sourceTree = "<group>"; };
 		E47426E71E0239F200AA4D9D /* WaterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterFlowLayout.swift; sourceTree = "<group>"; };
 		E47426E91E0261F500AA4D9D /* AnchorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorCell.swift; sourceTree = "<group>"; };
 		E47426ED1E02697300AA4D9D /* HomeAnchorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAnchorType.swift; sourceTree = "<group>"; };
@@ -95,6 +104,8 @@
 		E4AABD1E1E0100D500A36BFB /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		E4AABD221E0112D900A36BFB /* RankDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankDetailCell.swift; sourceTree = "<group>"; };
 		E4AABD251E01319500A36BFB /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		E4F7E3E71E0FC18900EC4186 /* ChatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		E4F7E3E91E0FC9BE00EC4186 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E4F9CA341E042F5100530B7D /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		F905E27F55E9E064D33BE071 /* Pods-LiveShowClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LiveShowClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-LiveShowClient/Pods-LiveShowClient.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F7E3EA1E0FC9BE00EC4186 /* AVFoundation.framework in Frameworks */,
 				E4F9CA351E042F5100530B7D /* IJKMediaFramework.framework in Frameworks */,
 				E438EBBE1E0397D90015B677 /* libz.tbd in Frameworks */,
 				534A37FD2B6745DBAB91B187 /* Pods_LiveShowClient.framework in Frameworks */,
@@ -130,6 +142,7 @@
 		10BCCDA0377E249D13DF7398 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4F7E3E91E0FC9BE00EC4186 /* AVFoundation.framework */,
 				E438EBBD1E0397D90015B677 /* libz.tbd */,
 				0FA930718D3D3794E43757AD /* Pods_LiveShowClient.framework */,
 			);
@@ -171,6 +184,8 @@
 		E41FFEFC1DFEECFB00CFEACD /* LiveShowClient */ = {
 			isa = PBXGroup;
 			children = (
+				E4F7E3E61E0FC16300EC4186 /* Service */,
+				E469B4461E0F793B0057E864 /* Socket */,
 				E4F9CA331E042F5100530B7D /* IJKPlayer */,
 				E47426F41E029C5F00AA4D9D /* Utils */,
 				E47426EF1E027FB800AA4D9D /* Entity */,
@@ -268,6 +283,17 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		E469B4461E0F793B0057E864 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				E469B4471E0F79720057E864 /* Socket.h */,
+				E469B4481E0F79720057E864 /* Socket.swift */,
+				E469B4491E0F79720057E864 /* SocketProtocols.swift */,
+				E469B44A1E0F79720057E864 /* SocketUtils.swift */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
 		E47426EF1E027FB800AA4D9D /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +332,14 @@
 				E437792B1DFF777F00EEF792 /* Rank */,
 			);
 			name = Sections;
+			sourceTree = "<group>";
+		};
+		E4F7E3E61E0FC16300EC4186 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E4F7E3E71E0FC18900EC4186 /* ChatService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		E4F9CA331E042F5100530B7D /* IJKPlayer */ = {
@@ -511,16 +545,20 @@
 				E43779301DFF777F00EEF792 /* RankViewController.swift in Sources */,
 				E4AABD1F1E0100D500A36BFB /* BaseModel.swift in Sources */,
 				E42D4DE01E03D1D900525820 /* GranuleEmitter.swift in Sources */,
+				E4F7E3E81E0FC18900EC4186 /* ChatService.swift in Sources */,
 				E4AABD1D1E00F01E00A36BFB /* RankModel.swift in Sources */,
 				E42D4DE81E03F6FB00525820 /* MoreInfoButton.swift in Sources */,
 				E47426EA1E0261F500AA4D9D /* AnchorCell.swift in Sources */,
+				E469B44B1E0F79720057E864 /* Socket.swift in Sources */,
 				E43779861DFFF19A00EEF792 /* RankType.swift in Sources */,
 				E4AABD191E00D7F500A36BFB /* SubRankTitleView.swift in Sources */,
 				E437792F1DFF777F00EEF792 /* ProfileViewController.swift in Sources */,
 				E437798B1E00162D00EEF792 /* BaseNavigationController.swift in Sources */,
 				E47426E81E0239F200AA4D9D /* WaterFlowLayout.swift in Sources */,
+				E469B44C1E0F79720057E864 /* SocketProtocols.swift in Sources */,
 				E42D4DE61E03ED2F00525820 /* SocialShareType.swift in Sources */,
 				E41FFEFE1DFEECFB00CFEACD /* AppDelegate.swift in Sources */,
+				E469B44D1E0F79720057E864 /* SocketUtils.swift in Sources */,
 				E437792E1DFF777F00EEF792 /* HomeViewController.swift in Sources */,
 				E47426F31E02805500AA4D9D /* HomeAnchorViewModel.swift in Sources */,
 				E43779881DFFF32C00EEF792 /* RankDetailViewController.swift in Sources */,

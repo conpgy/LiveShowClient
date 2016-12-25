@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LFLiveKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LiveShowClient.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C760110AE103A3BF3B8E4172EC99A4A</key>
+		<key>9DC24128D9A6B968EFC49A892441809D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A40A1D888321D47AC9E6EA74E8EB1273</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F61B9A77802804939966AA6FF1173E31</key>
+		<key>C7506D193EE0DE7D8698F98A27429AB7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

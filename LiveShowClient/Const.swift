@@ -14,7 +14,13 @@ class Const {
     static let navigationBarHeight: CGFloat = 64
     static let statusBarHeight: CGFloat = 20
     
-    static let domain = "http://www.onejiall.com:8092"
+    static let liveHost = "http://192.168.1.155"
+    
+    static let chatHost = "192.168.1.155"
+    static let chatPort:Int32 = 9090
+    
+    
+    static let domain = "\(liveHost):8092"
     
     // url
     static let rankStarUrl = domain + "/rankStar"

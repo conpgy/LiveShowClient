@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (4.0.1)
   - Kingfisher (3.1.4)
+  - LFLiveKit (2.6)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.1)
   - Kingfisher (~> 3.1.1)
+  - LFLiveKit
   - SnapKit (~> 3.0.2)
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
+  LFLiveKit: 2219563721f8aa0f188effc3395a06e2d53b23f2
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: d94fdb92ee14d3ee758a7ea3fad72fc3314b6ad8
+PODFILE CHECKSUM: 2816cb4c02d13f31c36d081ea06921e5615ea7f5
 
 COCOAPODS: 1.1.1

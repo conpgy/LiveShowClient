@@ -27,12 +27,19 @@ class RoomViewController: UIViewController {
     fileprivate var liveUrl: String?
     
     fileprivate var player: IJKFFMoviePlayerController?
+    
+    fileprivate let chatService = ChatService.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initUI()
         loadRoomInfo()
+        
+        chatService.connectChatServer()
+        
+        chatService.sendMessage("user \(anchor?.uid) get into room")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +55,10 @@ class RoomViewController: UIViewController {
         
         player?.shutdown()
     }
+    
+//    deinit {
+//        chatService.disconnectChatServer()
+//    }
     
     private func initUI() {
         setupBackgroundImageView()
@@ -256,6 +267,7 @@ extension RoomViewController {
     
     @objc fileprivate func focusButtonClick() {
         
+        chatService.sendMessage("关注")
     }
     
     @objc fileprivate func starButtonClick(button: UIButton) {
@@ -307,12 +319,12 @@ extension RoomViewController {
             guard let resultDict = result as? [String : Any] else { return }
             
             guard let _ = resultDict["code"] as? Int else {
-                print("code empty")
+//                print("code empty")
                 return
             }
             
             guard let url = resultDict["url"] as? String else {
-                print("url is null")
+//                print("url is null")
                 return
             }
             
@@ -332,7 +344,7 @@ extension RoomViewController {
         guard let liverUrl = self.liveUrl else {
             return
         }
-        print("liveUrl: " + liverUrl)
+//        print("liveUrl: " + liverUrl)
         
         let url = URL(string: liverUrl)
         player = IJKFFMoviePlayerController(contentURL: url, with: nil)

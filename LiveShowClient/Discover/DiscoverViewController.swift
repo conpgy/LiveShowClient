@@ -18,13 +18,14 @@ class DiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        #if TARGET_OS_IPHONE
         initUI()
         
         setupVideoInputOutput()
         setupAudioInputOutput()
         setupPreviewLayer()
 //        setupMovieOutput() 
+        #endif
     }
     
 }
