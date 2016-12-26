@@ -7,29 +7,54 @@
 //
 
 import UIKit
+import LFLiveKit
 
 class ProfileViewController: UIViewController {
+    
+    lazy var session: LFLiveSession = {
+        let audioConfig = LFLiveAudioConfiguration.default()
+        let videoConfig = LFLiveVideoConfiguration.defaultConfiguration(for: .low2, outputImageOrientation: .portrait)
+        let session = LFLiveSession(audioConfiguration: audioConfig, videoConfiguration: videoConfig)
+        session?.delegate = self
+        session?.preView = self.view
+        return session!
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        let startButton = UIButton(type: .system)
+        startButton.setTitle("start", for: .normal)
+        startButton.frame = CGRect(x: 80, y: 80, width: 100, height: 40)
+        view.addSubview(startButton)
+        
+        startButton.addTarget(self, action: #selector(startButtonClick), for: .touchUpInside)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc fileprivate func startButtonClick() {
+        
+        let stream = LFLiveStreamInfo()
+        stream.url = "rtmp://60.205.190.199:1935/live/demo"
+        session.startLive(stream)
+        session.running = true
     }
-    */
 
+}
+
+extension ProfileViewController: LFLiveSessionDelegate {
+    
+    func liveSession(_ session: LFLiveSession?, debugInfo: LFLiveDebug?) {
+        print("debugInfo: \(debugInfo)")
+    }
+    
+    func liveSession(_ session: LFLiveSession?, errorCode: LFLiveSocketErrorCode) {
+        print("errorCode: \(errorCode)")
+    }
+    
+    func liveSession(_ session: LFLiveSession?, liveStateDidChange state: LFLiveState) {
+        print("stateChanged: \(state.rawValue)")
+    }
+    
 }
