@@ -1,6 +1,6 @@
 LFLiveKit
 ==============
-![icon~](https://raw.github.com/LaiFengiOS/LFLiveKit/master/samples/Icon.png)
+![icon~](https://raw.github.com/LaiFengiOS/LFLiveKit/master/LFLiveKitDemo/LFLiveKitDemo/Icon.png)
 
 
 [![Build Status](https://travis-ci.org/LaiFengiOS/LFLiveKit.svg)](https://travis-ci.org/LaiFengiOS/LFLiveKit)&nbsp;
@@ -134,8 +134,6 @@ func liveSession(session: LFLiveSession?, liveStateDidChange state: LFLiveState)
         * CHANGE: modify bugs,support ios7 live.
     * 2.2.4.3
         * CHANGE: modify bugs,support swift import.
-    * 2.5 
-        * CHANGE: modify bugs,support bitcode.
 
 
 ## License

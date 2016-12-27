@@ -110,7 +110,6 @@
 }
 
 - (void)setCaptureDevicePosition:(AVCaptureDevicePosition)captureDevicePosition {
-    if(captureDevicePosition == self.videoCamera.cameraPosition) return;
     [self.videoCamera rotateCamera];
     self.videoCamera.frameRate = (int32_t)_configuration.videoFrameRate;
     [self reloadMirror];

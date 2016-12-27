@@ -12,6 +12,7 @@ import SnapKit
 import IJKMediaFramework
 
 private let socialShareViewHeight: CGFloat = 250
+private let chatToolViewHeight: CGFloat = 44
 
 class RoomViewController: UIViewController {
     
@@ -28,7 +29,10 @@ class RoomViewController: UIViewController {
     
     fileprivate var player: IJKFFMoviePlayerController?
     
-    fileprivate let chatService = ChatService.sharedInstance
+    fileprivate var bottomStackView: UIStackView!
+    fileprivate var chatToolView: ChatToolView!
+    
+    fileprivate lazy var socket = LiveSocket()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +40,13 @@ class RoomViewController: UIViewController {
         initUI()
         loadRoomInfo()
         
-        chatService.connectChatServer()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
-        chatService.sendMessage("user \(anchor?.uid) get into room")
-        
+        socket.delegate = self
+        DispatchQueue.global().async {
+            self.socket.connectToChatServer()
+            self.socket.send(with: "get into room", userName: "wangWu")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,9 +63,9 @@ class RoomViewController: UIViewController {
         player?.shutdown()
     }
     
-//    deinit {
-//        chatService.disconnectChatServer()
-//    }
+    deinit {
+        socket.close()
+    }
     
     private func initUI() {
         setupBackgroundImageView()
@@ -68,6 +75,8 @@ class RoomViewController: UIViewController {
         setupContributeView()
         setupBottomStackView()
         setupBottomFeatureView()
+        
+        setupMoreView()
     }
     
     private func setupBackgroundImageView() {
@@ -235,12 +244,12 @@ class RoomViewController: UIViewController {
     
     private func setupBottomStackView() {
         
-        let stackView = UIStackView(frame: CGRect(x: 0, y: Const.screenHeight - 50, width: Const.screenWidth, height: 50))
-        view.addSubview(stackView)
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 0
-        stackView.alignment = .fill
+        bottomStackView = UIStackView(frame: CGRect(x: 0, y: Const.screenHeight - 50, width: Const.screenWidth, height: 50))
+        view.addSubview(bottomStackView)
+        bottomStackView.axis = .horizontal
+        bottomStackView.distribution = .fillEqually
+        bottomStackView.spacing = 0
+        bottomStackView.alignment = .fill
         
         
         let images = ["room_btn_chat", "menu_btn_share", "room_btn_gift", "room_btn_more", "room_btn_qfstar"]
@@ -249,13 +258,19 @@ class RoomViewController: UIViewController {
             let button = UIButton()
             button.setImage(UIImage(named: images[i]), for: .normal)
             button.addTarget(self, action: selectors[i], for: .touchUpInside)
-            stackView.addArrangedSubview(button)
+            bottomStackView.addArrangedSubview(button)
         }
     }
 
     private func setupBottomFeatureView() {
         socialShareView = SocialShareView(frame: CGRect(x: 0, y: Const.screenHeight, width: Const.screenWidth, height: socialShareViewHeight))
         view.addSubview(socialShareView)
+    }
+    
+    private func setupMoreView() {
+        chatToolView = ChatToolView(frame: CGRect(x: 0, y: Const.screenHeight,  width: Const.screenWidth, height: chatToolViewHeight))
+        chatToolView.delegate = self
+        view.addSubview(chatToolView)
     }
 }
 
@@ -267,7 +282,7 @@ extension RoomViewController {
     
     @objc fileprivate func focusButtonClick() {
         
-        chatService.sendMessage("关注")
+//        socket.send(with: "关注")
     }
     
     @objc fileprivate func starButtonClick(button: UIButton) {
@@ -276,7 +291,7 @@ extension RoomViewController {
     }
     
     @objc fileprivate func chatButtonClick(button: UIButton) {
-        
+        chatToolView.textField.becomeFirstResponder()
     }
     
     @objc fileprivate func shareButtonClick(button: UIButton) {
@@ -294,11 +309,41 @@ extension RoomViewController {
         
     }
     
+    
+    @objc fileprivate func keyboardWillChangeFrame(_ note: Notification) {
+        
+        guard let userInfo = note.userInfo  else {
+            print("Notification userInfo is null.")
+            return
+        }
+        
+        let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let y = endFrame.origin.y - chatToolViewHeight
+        
+        UIView.animate(withDuration: duration) { 
+            UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
+            self.chatToolView.frame.origin.y = y
+        }
+        
+
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         UIView.animate(withDuration: 0.25, animations: {
             self.socialShareView.frame.origin.y = Const.screenHeight
+            self.chatToolView.frame.origin.y = Const.screenHeight
         })
+    }
+    
+    
+}
+
+extension RoomViewController: ChatToolViewDelegate {
+    
+    func chatToolView(_ toolView: ChatToolView, message: String) {
+        socket.send(with: message, userName: "wang wu")
     }
 }
 
@@ -314,7 +359,6 @@ extension RoomViewController {
                 print(response.result.error!)
                 return
             }
-            print(result)
             
             guard let resultDict = result as? [String : Any] else { return }
             
@@ -366,5 +410,25 @@ extension RoomViewController {
             player.prepareToPlay()
             player.play()
         }
+    }
+}
+
+extension RoomViewController: LiveSocketDelegate {
+    
+    func socket(_ socket: LiveSocket, joinRoom userName: String) {
+        print("\(userName) joined room")
+    }
+    
+    func socket(_ socket: LiveSocket, userName: String, message: String) {
+        print("\(userName): \(message)")
+    }
+    
+    func socket(_ socket: LiveSocket, userName: String, giftName: String, giftUrl: String) {
+        print("\(userName) gift name: \(giftName); giftUrl: \(giftUrl)")
+        
+    }
+    
+    func socket(_ socket: LiveSocket, leaveRoom userName: String) {
+        print("\(userName) leaving room")
     }
 }

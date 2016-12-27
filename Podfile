@@ -7,5 +7,6 @@ target 'LiveShowClient' do
     pod 'Kingfisher', '~>3.1.1'
     pod 'SnapKit', '~> 3.0.2'
     pod 'LFLiveKit'
+    pod 'SwiftyJSON'
 
 end
