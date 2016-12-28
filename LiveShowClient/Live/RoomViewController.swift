@@ -13,6 +13,7 @@ import IJKMediaFramework
 
 private let socialShareViewHeight: CGFloat = 250
 private let chatToolViewHeight: CGFloat = 44
+private let chatContentViewHeight: CGFloat = 160
 
 class RoomViewController: UIViewController {
     
@@ -30,9 +31,12 @@ class RoomViewController: UIViewController {
     fileprivate var player: IJKFFMoviePlayerController?
     
     fileprivate var bottomStackView: UIStackView!
+    fileprivate var chatContentView: ChatContentView!
     fileprivate var chatToolView: ChatToolView!
     
     fileprivate lazy var socket = LiveSocket()
+    
+    fileprivate lazy var attriMessageBuilder = AttributedMessageBuilder()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +47,8 @@ class RoomViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         socket.delegate = self
-        DispatchQueue.global().async {
-            self.socket.connectToChatServer()
-            self.socket.send(with: "get into room", userName: "wangWu")
-        }
+        socket.connectToChatServer()
+        socket.send(joinRoom: "飞哥")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +76,6 @@ class RoomViewController: UIViewController {
         setupOnlineView()
         setupContributeView()
         setupBottomStackView()
-        setupBottomFeatureView()
         
         setupMoreView()
     }
@@ -261,16 +262,25 @@ class RoomViewController: UIViewController {
             bottomStackView.addArrangedSubview(button)
         }
     }
-
-    private func setupBottomFeatureView() {
-        socialShareView = SocialShareView(frame: CGRect(x: 0, y: Const.screenHeight, width: Const.screenWidth, height: socialShareViewHeight))
-        view.addSubview(socialShareView)
-    }
     
     private func setupMoreView() {
+        
+        chatContentView = ChatContentView(frame:
+            CGRect(
+                x: 0,
+                y: Const.screenHeight - chatContentViewHeight - chatToolViewHeight,
+                width: Const.screenWidth,
+                height: chatContentViewHeight
+            )
+        )
+        view.addSubview(chatContentView)
+        
         chatToolView = ChatToolView(frame: CGRect(x: 0, y: Const.screenHeight,  width: Const.screenWidth, height: chatToolViewHeight))
         chatToolView.delegate = self
         view.addSubview(chatToolView)
+        
+        socialShareView = SocialShareView(frame: CGRect(x: 0, y: Const.screenHeight, width: Const.screenWidth, height: socialShareViewHeight))
+        view.addSubview(socialShareView)
     }
 }
 
@@ -281,8 +291,7 @@ extension RoomViewController {
     }
     
     @objc fileprivate func focusButtonClick() {
-        
-//        socket.send(with: "关注")
+        // 关注
     }
     
     @objc fileprivate func starButtonClick(button: UIButton) {
@@ -302,7 +311,6 @@ extension RoomViewController {
     }
     
     @objc fileprivate func giftButtonClick(button: UIButton) {
-        
     }
     
     @objc fileprivate func moreButtonClick(button: UIButton) {
@@ -324,6 +332,7 @@ extension RoomViewController {
         UIView.animate(withDuration: duration) { 
             UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
             self.chatToolView.frame.origin.y = y
+            self.chatContentView.frame.origin.y = y - chatContentViewHeight
         }
         
 
@@ -417,14 +426,17 @@ extension RoomViewController: LiveSocketDelegate {
     
     func socket(_ socket: LiveSocket, joinRoom userName: String) {
         print("\(userName) joined room")
+        chatContentView.append(message: attriMessageBuilder.joinRoom(with: userName))
     }
     
     func socket(_ socket: LiveSocket, userName: String, message: String) {
         print("\(userName): \(message)")
+        chatContentView.append(message: attriMessageBuilder.build(with: message, userName: userName))
     }
     
     func socket(_ socket: LiveSocket, userName: String, giftName: String, giftUrl: String) {
         print("\(userName) gift name: \(giftName); giftUrl: \(giftUrl)")
+        chatContentView.append(message: attriMessageBuilder.build(with: giftName, giftUrl: giftUrl, userName: userName))
         
     }
     

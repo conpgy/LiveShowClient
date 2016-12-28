@@ -39,6 +39,10 @@ class LiveSocket {
         }
     }
     
+    deinit {
+        print("live socket deinit.")
+    }
+    
     
     func connectToChatServer() {
         
@@ -80,7 +84,14 @@ class LiveSocket {
                             break
                         }
                         
-                        self.handle(with: message)
+                        DispatchQueue.main.async {
+                            self.handle(with: message)
+                        }
+                        
+                    }
+                    
+                    if byteRead == 0 {
+                        print("byteRead: 0")
                     }
                     
                     readData.count = 0
@@ -88,7 +99,7 @@ class LiveSocket {
                 } while socket.isConnected
                 
             } catch let error {
-                print("read error: \(error.localizedDescription)")
+                print("read error: \(error)")
             }
 
         }
