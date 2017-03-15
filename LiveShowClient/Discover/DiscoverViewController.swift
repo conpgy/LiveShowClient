@@ -45,6 +45,7 @@ extension DiscoverViewController {
         stopButton.addTarget(self, action: #selector(stopButtonClick), for: .touchUpInside)
         stopButton.setTitle("停止", for: .normal)
         view.addSubview(stopButton)
+        
     }
 }
 

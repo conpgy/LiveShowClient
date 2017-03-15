@@ -36,6 +36,8 @@ class ProfileViewController: UIViewController {
     @objc fileprivate func startButtonClick() {
         
         let stream = LFLiveStreamInfo()
+
+//        stream.url = "rtmp://60.205.190.199:1935/live/demo"
         stream.url = "rtmp://60.205.190.199:1935/hls/demo"
         session.startLive(stream)
         session.running = true
@@ -54,7 +56,24 @@ extension ProfileViewController: LFLiveSessionDelegate {
     }
     
     func liveSession(_ session: LFLiveSession?, liveStateDidChange state: LFLiveState) {
-        print("stateChanged: \(state.rawValue)")
+        
+        
+        switch state {
+        case .pending:
+            print("pending")
+        case .ready:
+            print("ready")
+        case .refresh:
+            print("refresh")
+        case .error:
+            print("error")
+        case .start:
+            print("start")
+        case .stop:
+            print("stop")
+        }
+        
+//        print("stateChanged: \(state)")
     }
     
 }
