@@ -36,7 +36,7 @@ class ProfileViewController: UIViewController {
     @objc fileprivate func startButtonClick() {
         
         let stream = LFLiveStreamInfo()
-        stream.url = "rtmp://60.205.190.199:1935/live/demo"
+        stream.url = "rtmp://60.205.190.199:1935/hls/demo"
         session.startLive(stream)
         session.running = true
     }

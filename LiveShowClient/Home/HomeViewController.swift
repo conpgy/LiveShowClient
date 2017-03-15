@@ -62,24 +62,28 @@ class HomeViewController: UIViewController {
             
             guard let resultDict = result as? [String : Any] else { return }
             
-            guard let message = resultDict["message"] as? String else {
-                print("message empty")
+//            guard let message = resultDict["message"] as? String else {
+//                print("message empty")
+//                return
+//            }
+//            
+//            
+//            guard let code = resultDict["code"] as? Int else {
+//                print("code empty")
+//                return
+//            }
+            
+            guard let message = resultDict["message"] as? [String: Any] else {
                 return
             }
             
-            
-            guard let code = resultDict["code"] as? Int else {
-                print("code empty")
-                return
-            }
-            
-            guard let anchorsDict = resultDict["anchors"] as? [[String: Any]] else {
+            guard let anchorsDict = message["anchors"] as? [[String: Any]] else {
                 print("anchors error")
                 return
             }
             
-            print("message: " + message)
-            print("code: \(code)")
+//            print("message: " + message)
+//            print("code: \(code)")
             
             for (index,dict) in anchorsDict.enumerated() {
                 let anchor = Anchor(dict: dict)
